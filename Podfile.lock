@@ -10,6 +10,7 @@ PODS:
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
+  - Alamofire
   - Moya
   - SDWebImage
   - SnapKit
@@ -27,6 +28,6 @@ SPEC CHECKSUMS:
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 37ee5e9bfd3b0b1d6e0ece57732eff5fd523fc50
+PODFILE CHECKSUM: 897e240612275adbc9024aaaa4a5afcf96845bbd
 
 COCOAPODS: 1.10.1

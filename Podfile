@@ -9,5 +9,6 @@ target 'IOS-Example' do
   pod 'Moya'
   pod 'SDWebImage'
   pod 'SnapKit'
+  pod 'Alamofire'
 
 end
