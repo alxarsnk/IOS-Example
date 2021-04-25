@@ -51,7 +51,9 @@ extension AlbumsPresenter: AlbumsViewOutput {
     }
     
     func albumPressed(at indexPath: IndexPath) {
-        
+        let albumId = albums[indexPath.row].id
+        let controller = MainRouter.shared.createAlbumDetailModule(albumId: albumId)
+        view?.showViewController(controller)
     }
     
 }

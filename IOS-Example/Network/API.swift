@@ -27,7 +27,7 @@ extension API {
         case .getAlbums:
             return "albums"
         default:
-            return ""
+            return "photos"
         }
     }
     
@@ -40,7 +40,15 @@ extension API {
     }
     
     var task: Task {
-        return .requestPlain
+        switch self {
+        case let .getAlbumDetail(albumId):
+            return .requestParameters(
+                parameters: ["albumId": albumId],
+                encoding:URLEncoding.queryString
+            )
+        default:
+            return .requestPlain
+        }
     }
     
     var headers: [String : String]? {

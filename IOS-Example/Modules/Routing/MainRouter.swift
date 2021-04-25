@@ -33,4 +33,20 @@ class MainRouter {
         return view
     }
     
+    func createAlbumDetailModule(albumId: Int) -> UIViewController {
+        let view = AlbumDetailViewController()
+        let presenter = AlbumDetailPresenter(albumId: albumId)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    
+    func createPostDetail(post: Post) -> UIViewController {
+        let view = PostDetailViewController()
+        let presenter = PostDetailPresenter(post: post)
+        view.presenter = presenter
+        presenter.view = view
+        return view
+    }
+    
 }

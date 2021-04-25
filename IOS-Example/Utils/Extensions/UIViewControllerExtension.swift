@@ -10,7 +10,7 @@ import UIKit
 extension UIViewController: Presentable {
     
     func showViewController(_ viewController: UIViewController) {
-        showDetailViewController(viewController, sender: self)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func presentViewController(_ viewController: UIViewController) {

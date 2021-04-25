@@ -1,19 +1,21 @@
 //
-//  AlbumsCell.swift
+//  PostCell.swift
 //  IOS-Example
 //
 //  Created by Александр Арсенюк on 25.04.2021.
 //
 
 import UIKit
+import SDWebImage
 
-class AlbumsCell: UITableViewCell {
+class PostCell: UITableViewCell {
     
     // MARK: - Internal properties
     
     private struct Appearance: Grid {
         let alphaComponent06: CGFloat = 0.06
         let opacity1: Float = 1
+        let size150: CGFloat = 150
     }
     private let appearance = Appearance()
     
@@ -34,12 +36,12 @@ class AlbumsCell: UITableViewCell {
         return view
     }()
     
-    lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Название альбома"
-        label.font = UIFont.systemFont(ofSize: appearance.xsSpace, weight: .regular)
-        label.setColor(.gray)
-        return label
+    lazy var postImageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = appearance.xxsSpace
+        imageView.clipsToBounds = true
+        return imageView
     }()
     
     lazy var titleLabel: UILabel = {
@@ -74,8 +76,8 @@ class AlbumsCell: UITableViewCell {
     
     private func addSubviews() {
         contentView.addSubview(containerView)
-        containerView.addSubview(nameLabel)
         containerView.addSubview(titleLabel)
+        containerView.addSubview(postImageView)
     }
     
     private func makeConstraints() {
@@ -84,24 +86,30 @@ class AlbumsCell: UITableViewCell {
                 .inset(appearance.xsSpace)
         }
         
-        nameLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview()
-                .offset(appearance.xsSpace)
+        postImageView.snp.makeConstraints { make in
+            make.top.leading.bottom.equalToSuperview()
+                .inset(appearance.xsSpace)
+            make.size.equalTo(appearance.size150)
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom)
-                .offset(appearance.xxsSpace)
-            make.bottom.leading.trailing.equalToSuperview()
+            make.top.equalTo(postImageView.snp.top)
+            make.bottom.lessThanOrEqualToSuperview()
                 .inset(appearance.xsSpace)
+            make.trailing.equalToSuperview()
+                .inset(appearance.xsSpace)
+            make.leading.equalTo(postImageView.snp.trailing)
+                .offset(appearance.xxsSpace)
         }
     }
     
 }
 
-extension AlbumsCell {
+extension PostCell {
     
-    func configure(with viewModel: Album) {
+    func configure(with viewModel: Post) {
+        let url = URL(string: viewModel.thumbnailUrl)
+        postImageView.sd_setImage(with: url, completed: nil)
         titleLabel.text = viewModel.title
     }
     
