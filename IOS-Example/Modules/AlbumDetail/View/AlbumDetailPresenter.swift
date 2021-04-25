@@ -63,7 +63,6 @@ extension AlbumDetailPresenter: AlbumDetailViewOutput {
                     completion?()
                 } else if let posts = posts {
                     self.fetchedPosts = posts
-//                    self.album.posts = try! List<Post>(from: posts as! Decoder)
                     self.view?.reloadData()
                     completion?()
                 } else {
@@ -72,9 +71,12 @@ extension AlbumDetailPresenter: AlbumDetailViewOutput {
                 }
             }
         case .local:
-//            fetchedPosts = Array(album.posts ?? List<Post>())
-            view?.reloadData()
-            completion?()
+            dataBaseManager.getPosts(by: album.id) { [weak self] posts in
+                guard let self = self else { return }
+                self.fetchedPosts = posts ?? []
+                self.view?.reloadData()
+                completion?()
+            }
         }
     }
     
@@ -95,9 +97,11 @@ extension AlbumDetailPresenter: AlbumDetailViewOutput {
         dataBaseManager.saveAlbum(album) { [weak self] in
             self?.isItemSaved.toggle()
         }
+        dataBaseManager.savePosts(posts, completion: {})
     }
     
     func deleteItem() {
+        dataBaseManager.deletePosts(by: album.id, completion: {})
         dataBaseManager.deleteAlbum(album: album) { [weak self] in
             self?.isItemSaved.toggle()
         }

@@ -18,4 +18,14 @@ class Post: Object, Codable {
     @objc dynamic var url: String = ""
     @objc dynamic var thumbnailUrl: String = ""
     
+    func copy() -> Post {
+        let post = Post()
+        post.albumId = albumId
+        post.id = id
+        post.title = title
+        post.url = url
+        post.thumbnailUrl = thumbnailUrl
+        return post
+    }
+    
 }

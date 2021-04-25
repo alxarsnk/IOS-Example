@@ -58,7 +58,7 @@ class DataBaseManager {
     
     func savePosts(_ posts: Posts, completion: @escaping () -> Void) {
         try! localRealm.write {
-            localRealm.add(posts)
+            localRealm.add(posts.map {$0.copy()})
             completion()
         }
     }
