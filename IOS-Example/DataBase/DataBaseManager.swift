@@ -28,13 +28,13 @@ class DataBaseManager {
     
     func saveAlbum(_ album: Album, completion: @escaping () -> Void) {
         try! localRealm.write {
-            localRealm.add(album)
+            localRealm.add(album.copy())
             completion()
         }
     }
     
     func getAlbums(completion: @escaping (Albums?) -> Void) {
-        completion(localRealm.objects(Album.self).map { $0 })
+        completion(Array(localRealm.objects(Album.self)))
     }
     
     func isAlbumExists(album: Album, completion: @escaping (Bool) -> Void) {
@@ -46,9 +46,11 @@ class DataBaseManager {
     }
     
     func deleteAlbum(album: Album, completion: @escaping () -> Void) {
-        try! localRealm.write {
-            localRealm.delete(album)
-            completion()
+        if let deletedItem = localRealm.objects(Album.self).first(where: { $0.id == album.id }) {
+            try! localRealm.write {
+                localRealm.delete(deletedItem)
+                completion()
+            }
         }
     }
     
