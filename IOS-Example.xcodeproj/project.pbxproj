@@ -11,6 +11,14 @@
 		1B3462EE2634C1460072B52A /* IOS_Example.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B3462EC2634C1460072B52A /* IOS_Example.xcdatamodeld */; };
 		1B3462F02634C1490072B52A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B3462EF2634C1490072B52A /* Assets.xcassets */; };
 		1B3462F32634C1490072B52A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B3462F12634C1490072B52A /* LaunchScreen.storyboard */; };
+		1B5572722634E0E7005EC772 /* AlbumsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5572712634E0E7005EC772 /* AlbumsCell.swift */; };
+		1B5572762634E260005EC772 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5572752634E260005EC772 /* UILabelExtension.swift */; };
+		1B55727A2634E91D005EC772 /* RefreshControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5572792634E91D005EC772 /* RefreshControlDelegate.swift */; };
+		1B55727D2634EAED005EC772 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B55727C2634EAEC005EC772 /* Presentable.swift */; };
+		1B5572802634EB72005EC772 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B55727F2634EB72005EC772 /* UIViewControllerExtension.swift */; };
+		1B56C2D32634D8EC000F0CBC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B56C2D22634D8EC000F0CBC /* API.swift */; };
+		1B56C2D72634D8FB000F0CBC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B56C2D62634D8FB000F0CBC /* NetworkService.swift */; };
+		1B56C2DB2634D911000F0CBC /* Albums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B56C2DA2634D911000F0CBC /* Albums.swift */; };
 		1B81AF3E2634CA42003F88FA /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81AF3D2634CA42003F88FA /* AlbumsViewController.swift */; };
 		1B81AF412634CA64003F88FA /* AlbumsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81AF402634CA64003F88FA /* AlbumsModule.swift */; };
 		1B81AF442634CAA5003F88FA /* AlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81AF432634CAA5003F88FA /* AlbumsView.swift */; };
@@ -29,6 +37,14 @@
 		1B3462EF2634C1490072B52A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B3462F22634C1490072B52A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B3462F42634C1490072B52A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B5572712634E0E7005EC772 /* AlbumsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCell.swift; sourceTree = "<group>"; };
+		1B5572752634E260005EC772 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		1B5572792634E91D005EC772 /* RefreshControlDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControlDelegate.swift; sourceTree = "<group>"; };
+		1B55727C2634EAEC005EC772 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		1B55727F2634EB72005EC772 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		1B56C2D22634D8EC000F0CBC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		1B56C2D62634D8FB000F0CBC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		1B56C2DA2634D911000F0CBC /* Albums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Albums.swift; sourceTree = "<group>"; };
 		1B81AF3D2634CA42003F88FA /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		1B81AF402634CA64003F88FA /* AlbumsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsModule.swift; sourceTree = "<group>"; };
 		1B81AF432634CAA5003F88FA /* AlbumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsView.swift; sourceTree = "<group>"; };
@@ -75,6 +91,7 @@
 		1B3462E22634C1460072B52A /* IOS-Example */ = {
 			isa = PBXGroup;
 			children = (
+				1B56C2D02634D8CF000F0CBC /* Network */,
 				1B81AF462634CB0A003F88FA /* Utils */,
 				1B81AF352634C974003F88FA /* Modules */,
 				1B81AF2C2634C8FB003F88FA /* CoreData */,
@@ -83,6 +100,50 @@
 				1B3462F42634C1490072B52A /* Info.plist */,
 			);
 			path = "IOS-Example";
+			sourceTree = "<group>";
+		};
+		1B5572702634E0DB005EC772 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1B5572712634E0E7005EC772 /* AlbumsCell.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		1B5572742634E255005EC772 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1B5572752634E260005EC772 /* UILabelExtension.swift */,
+				1B55727F2634EB72005EC772 /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1B5572782634E90F005EC772 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1B5572792634E91D005EC772 /* RefreshControlDelegate.swift */,
+				1B55727C2634EAEC005EC772 /* Presentable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1B56C2D02634D8CF000F0CBC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1B56C2D92634D8FF000F0CBC /* Models */,
+				1B56C2D22634D8EC000F0CBC /* API.swift */,
+				1B56C2D62634D8FB000F0CBC /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1B56C2D92634D8FF000F0CBC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1B56C2DA2634D911000F0CBC /* Albums.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1B81AF2A2634C8C8003F88FA /* Main */ = {
@@ -124,6 +185,7 @@
 		1B81AF382634C9D5003F88FA /* Albums */ = {
 			isa = PBXGroup;
 			children = (
+				1B5572702634E0DB005EC772 /* Entity */,
 				1B81AF3B2634C9FB003F88FA /* Presenter */,
 				1B81AF392634C9F4003F88FA /* View */,
 				1B81AF402634CA64003F88FA /* AlbumsModule.swift */,
@@ -151,6 +213,8 @@
 		1B81AF462634CB0A003F88FA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1B5572782634E90F005EC772 /* Protocols */,
+				1B5572742634E255005EC772 /* Extensions */,
 				1B81AF472634CB12003F88FA /* Grid.swift */,
 			);
 			path = Utils;
@@ -302,15 +366,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B56C2D32634D8EC000F0CBC /* API.swift in Sources */,
 				1B81AF3E2634CA42003F88FA /* AlbumsViewController.swift in Sources */,
+				1B5572802634EB72005EC772 /* UIViewControllerExtension.swift in Sources */,
+				1B55727A2634E91D005EC772 /* RefreshControlDelegate.swift in Sources */,
 				1B81AF812634CDBA003F88FA /* AlbumsPresenter.swift in Sources */,
 				1B81AF8C2634D313003F88FA /* SceneDelegate.swift in Sources */,
 				1B81AF7D2634CD0B003F88FA /* MainRouter.swift in Sources */,
 				1B81AF412634CA64003F88FA /* AlbumsModule.swift in Sources */,
+				1B5572762634E260005EC772 /* UILabelExtension.swift in Sources */,
+				1B56C2DB2634D911000F0CBC /* Albums.swift in Sources */,
 				1B81AF442634CAA5003F88FA /* AlbumsView.swift in Sources */,
 				1B3462E42634C1460072B52A /* AppDelegate.swift in Sources */,
 				1B3462EE2634C1460072B52A /* IOS_Example.xcdatamodeld in Sources */,
+				1B55727D2634EAED005EC772 /* Presentable.swift in Sources */,
 				1B81AF902634D4D1003F88FA /* TabBarController.swift in Sources */,
+				1B5572722634E0E7005EC772 /* AlbumsCell.swift in Sources */,
+				1B56C2D72634D8FB000F0CBC /* NetworkService.swift in Sources */,
 				1B81AF482634CB12003F88FA /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

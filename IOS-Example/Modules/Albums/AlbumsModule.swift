@@ -8,9 +8,13 @@
 import Foundation
 
 protocol AlbumsViewInput: AnyObject {
-    
+    func reloadData()
+    func setupAnimating(isAnimating: Bool)
 }
 
 protocol AlbumsViewOutput {
+    var albums: Albums { get set }
     
+    func loadData(completion: (() -> Void)?)
+    func albumPressed(at indexPath: IndexPath)
 }

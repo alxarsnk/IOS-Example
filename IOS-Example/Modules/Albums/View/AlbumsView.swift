@@ -10,16 +10,42 @@ import SnapKit
 
 class AlbumsView: UIView {
     
-    // MARK: - Internal properties
+    // MARK: -  Appearance
     
     private struct Appearance: Grid { }
     private let appearance = Appearance()
+    
+    // MARK: - Internal properties
+    
+    weak var refreshControlDelegate: RefreshControlDelegate?
     
     // MARK: - UI elements
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.separatorStyle = .none
+        tableView.register(
+            AlbumsCell.self,
+            forCellReuseIdentifier: String(describing: AlbumsCell.self)
+        )
         return tableView
+    }()
+    
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = UIActivityIndicatorView.Style.large
+        return activityIndicator
+    }()
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(
+            self,
+            action: #selector(refreshData),
+            for: .valueChanged
+        )
+        return refreshControl
     }()
     
     // MARK: - Init
@@ -45,11 +71,25 @@ class AlbumsView: UIView {
     
     private func addSubviews() {
         addSubview(tableView)
+        addSubview(activityIndicator)
+        tableView.addSubview(refreshControl)
     }
     
     private func makeConstraints() {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        activityIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+    }
+    
+    // MARK: - Action handlers
+    
+    @objc
+    private func refreshData() {
+        refreshControlDelegate?.refreshData { [weak self] in
+            self?.refreshControl.endRefreshing()
         }
     }
     
