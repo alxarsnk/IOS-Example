@@ -27,15 +27,25 @@ class TabBarController: UITabBarController {
             tag: 0
         )
         
+        let saveAlbumsViewController = UINavigationController(
+            rootViewController: secondViewController
+        )
+        saveAlbumsViewController.tabBarItem = UITabBarItem(
+            title: "Saved",
+            image: UIImage(named: "downloadIcon"),
+            tag: 1
+        )
+        
         setViewControllers(
             [
                 albumsViewController,
-                secondViewController,
+                saveAlbumsViewController,
                 theirdViewController
             ],
             animated: false
         )
         self.selectedIndex = 0
+        self.tabBar.tintColor = .black
     }
     
     required init?(coder aDecoder: NSCoder) {

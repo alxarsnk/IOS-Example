@@ -24,6 +24,7 @@ class AlbumDetailViewController: UIViewController {
         self.view = albumDetailView
         setupNavigation()
         setupDelegates()
+        presenter?.checkForItem()
         presenter?.loadData(completion: nil)
     }
     
@@ -40,6 +41,18 @@ class AlbumDetailViewController: UIViewController {
         albumDetailView.refreshControlDelegate = self
     }
     
+    // MARK: - Action handlers
+    
+    @objc
+    private func deleteItem() {
+        presenter?.deleteItem()
+    }
+    
+    @objc
+    private func saveItem() {
+        presenter?.saveItem()
+    }
+    
 }
 
 extension AlbumDetailViewController: AlbumDetailViewInput {
@@ -52,6 +65,16 @@ extension AlbumDetailViewController: AlbumDetailViewInput {
         isAnimating
             ? albumDetailView.activityIndicator.startAnimating()
             : albumDetailView.activityIndicator.stopAnimating()
+    }
+    
+    func setupSaveButton(isSaved: Bool) {
+        let rightButton: UIBarButtonItem
+        if isSaved {
+            rightButton = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteItem))
+        } else {
+            rightButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveItem))
+        }
+        navigationItem.rightBarButtonItem = rightButton
     }
     
 }

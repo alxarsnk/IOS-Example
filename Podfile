@@ -10,5 +10,6 @@ target 'IOS-Example' do
   pod 'SDWebImage'
   pod 'SnapKit'
   pod 'Alamofire'
+  pod 'RealmSwift'
 
 end

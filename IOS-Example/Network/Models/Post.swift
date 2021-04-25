@@ -6,15 +6,16 @@
 //
 
 import  Foundation
+import RealmSwift
 
 typealias Posts = [Post]
 
-struct Post: Codable {
+class Post: Object, Codable {
     
-    let albumId: Int
-    let id: Int
-    let title: String
-    let url: String
-    let thumbnailUrl: String
+    @objc dynamic var albumId: Int = Int()
+    @objc dynamic var id: Int = Int()
+    @objc dynamic var title: String = ""
+    @objc dynamic var url: String = ""
+    @objc dynamic var thumbnailUrl: String = ""
     
 }

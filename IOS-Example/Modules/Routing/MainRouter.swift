@@ -19,23 +19,23 @@ class MainRouter {
     
     func createTabBarModule() -> UIViewController {
         return TabBarController(
-            firstViewController: createAlbumsModule(),
-            secondViewController: UIViewController(),
+            firstViewController: createAlbumsModule(dataSourceType: .network),
+            secondViewController: createAlbumsModule(dataSourceType: .local),
             theirdViewController: UIViewController()
         )
     }
     
-    func createAlbumsModule() -> UIViewController {
+    func createAlbumsModule(dataSourceType: AlbumsDataSourceType) -> UIViewController {
         let view = AlbumsViewController()
-        let presenter = AlbumsPresenter()
+        let presenter = AlbumsPresenter(dataSourceType: dataSourceType)
         view.presenter = presenter
         presenter.view = view
         return view
     }
     
-    func createAlbumDetailModule(albumId: Int) -> UIViewController {
+    func createAlbumDetailModule(album: Album, dataSourceType: AlbumsDataSourceType) -> UIViewController {
         let view = AlbumDetailViewController()
-        let presenter = AlbumDetailPresenter(albumId: albumId)
+        let presenter = AlbumDetailPresenter(album: album, dataSourceType: dataSourceType)
         view.presenter = presenter
         presenter.view = view
         return view

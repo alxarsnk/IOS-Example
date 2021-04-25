@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import RealmSwift
 
 typealias Albums = [Album]
 
-struct Album: Codable {
+class Album: Object, Codable {
     
-    let userId: Int
-    let id: Int
-    let title: String
+    @objc dynamic var userId: Int = Int()
+    @objc dynamic var id: Int
+    @objc dynamic var title: String
     
 }

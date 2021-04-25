@@ -10,6 +10,7 @@ import Foundation
 protocol AlbumDetailViewInput: AnyObject {
     func reloadData()
     func setupAnimating(isAnimating: Bool)
+    func setupSaveButton(isSaved: Bool)
 }
 
 protocol AlbumDetailViewOutput {
@@ -18,4 +19,7 @@ protocol AlbumDetailViewOutput {
     
     func loadData(completion: (() -> Void)?)
     func postPressed(at indexPath: IndexPath)
+    func checkForItem()
+    func saveItem()
+    func deleteItem()
 }
